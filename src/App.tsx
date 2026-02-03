@@ -55,7 +55,7 @@ function App() {
           topFrame.style.opacity = "1";
         }
       }, 2000);
-      topFrame.style.transition = "opacity 1.8s";
+      topFrame.style.transition = "opacity 2.2s";
       topFrame.style.opacity = "0";
     }, 4000);
     return () => clearInterval(interval);
