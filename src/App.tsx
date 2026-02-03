@@ -17,6 +17,20 @@ import {
   topRowStyle,
 } from "./styles";
 
+// Static Functions
+const getRandomPokemon = () =>
+  Array.from({ length: 30 }, () => Math.floor(Math.random() * 649) + 1);
+
+const getSpriteUrl = (id) =>
+  `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+
+const getGradient = (id) => {
+  const colorString = db.find((pokemon) => pokemon.id === id)?.colors.join(",");
+  const gradientString = `linear-gradient(to bottom right, ${colorString})`;
+  return gradientString;
+};
+
+// Component
 function App() {
   const [currentId, setCurrentId] = useState(1);
   const [nextId, setNextId] = useState(2);
@@ -26,19 +40,8 @@ function App() {
 
   const params = new URLSearchParams(location.search);
   const [idList, setIdList] = useState(
-    JSON.parse(params.get("idList") || "[1, 2, 3, 4, 5, 6, 7, 8, 9]"),
+    JSON.parse(params.get("idList") || "undefined") || getRandomPokemon(),
   );
-
-  const getSpriteUrl = (id) =>
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
-
-  const getGradient = (id) => {
-    const colorString = db
-      .find((pokemon) => pokemon.id === id)
-      ?.colors.join(",");
-    const gradientString = `linear-gradient(to bottom right, ${colorString})`;
-    return gradientString;
-  };
 
   useEffect(() => {
     const interval = setInterval(() => {
