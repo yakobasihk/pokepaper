@@ -124,3 +124,18 @@ export const textStyle: CSSProperties = {
   opacity: "0.6",
   letterSpacing: "2px",
 };
+
+export const colorsContainerStyle: CSSProperties = {
+  display: "flex",
+  gap: "12px",
+  padding: "6px",
+  borderRadius: "999px",
+  background: "#ffffff80",
+};
+
+export const colorSwatchStyle: CSSProperties = {
+  width: "20px",
+  height: "20px",
+  borderRadius: "999px",
+  boxShadow: "0 0 6px #fff",
+};

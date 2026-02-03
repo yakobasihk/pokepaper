@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { db } from "./db";
 import {
   bottomRowStyle,
+  colorsContainerStyle,
+  colorSwatchStyle,
   frameStyle,
   imageStyle,
   inputStyle,
@@ -84,6 +86,13 @@ function App() {
           <p style={textStyle}>
             {db.find((pokemon) => pokemon.id === nextId)?.name.toUpperCase()}
           </p>
+          <div style={colorsContainerStyle}>
+            {db
+              .find((pokemon) => pokemon.id === nextId)
+              ?.colors.map((color) => (
+                <div style={{ ...colorSwatchStyle, background: color }} />
+              ))}
+          </div>
         </div>
       </div>
       {/* Frame 2 */}
@@ -110,6 +119,13 @@ function App() {
           <p style={textStyle}>
             {db.find((pokemon) => pokemon.id === currentId)?.name.toUpperCase()}
           </p>
+          <div style={colorsContainerStyle}>
+            {db
+              .find((pokemon) => pokemon.id === currentId)
+              ?.colors.map((color) => (
+                <div style={{ ...colorSwatchStyle, background: color }} />
+              ))}
+          </div>
         </div>
       </div>
       <div style={{ ...settingsStyle, scale: isSettingsOpen ? "1" : "0" }}>
