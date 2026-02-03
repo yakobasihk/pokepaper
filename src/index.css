@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Google Sans Flex;
+}
+
+.app {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  position: relative;
+}
