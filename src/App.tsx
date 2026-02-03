@@ -40,7 +40,7 @@ function App() {
 
   const params = new URLSearchParams(location.search);
   const [idList, setIdList] = useState(
-    JSON.parse(params.get("idList") || "undefined") || getRandomPokemon(),
+    JSON.parse(params.get("idList") || "0") || getRandomPokemon(),
   );
 
   useEffect(() => {
